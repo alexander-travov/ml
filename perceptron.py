@@ -94,7 +94,7 @@ class Perceptron:
 
     def net_input(self, X):
         """Calculate net input <w,x>=w1*x1+...+wn*xn+w0"""
-        return np.dot(self.w_[1:], X) + self.w_[0]
+        return np.dot(X, self.w_[1:]) + self.w_[0]
 
     def predict(self, X):
         """Predict class label(s)"""
