@@ -105,12 +105,18 @@ if __name__ == '__main__':
     df = pd.read_csv('iris.data', header=None)
     # select petal and sepal length
     X = df.iloc[0:100, [0, 2]].values
+
+    # Feature standardization
+    X_std = np.copy(X)
+    X_std[:,0] = (X[:,0] - X[:,0].mean())/X[:,0].std()
+    X_std[:,1] = (X[:,1] - X[:,1].mean())/X[:,1].std()
+
     # select setosa and versicolor
     y = df.iloc[0:100, 4].values
     y = np.where(y == 'Iris-setosa', -1, 1)
 
-    adaline = Adaline(eta=0.0003, n_iter=50, random_state=1)
-    adaline.fit(X, y)
+    adaline = Adaline(eta=0.01, n_iter=15, random_state=1)
+    adaline.fit(X_std, y)
 
     import matplotlib.pyplot as plt
     plt.plot(adaline.cost_, marker='o')
@@ -119,7 +125,7 @@ if __name__ == '__main__':
     plt.show()
 
     from utils import plot_decision_regions
-    plot_decision_regions(X, y, adaline)
+    plot_decision_regions(X_std, y, adaline)
     plt.xlabel('petal length [cm]')
     plt.ylabel('sepal length [cm]')
     plt.legend(loc='upper left')
