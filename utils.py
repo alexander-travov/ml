@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 
 
-def plot_decision_regions(X, y, classifier, resolution=0.02):
+def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
     """
     X = R2.
     Draw colored decision regions for classifier on a plane.
@@ -29,3 +29,8 @@ def plot_decision_regions(X, y, classifier, resolution=0.02):
             marker=markers[idx],
             label=cl,
             edgecolor='black')
+
+    if test_idx:
+        X_test, y_test = X[test_idx,:], y[test_idx]
+        plt.scatter(X_test[:,0], X_test[:,1], c='', edgecolor='k', alpha=1,
+                linewidth=1, marker='o', s=100, label='test set')
