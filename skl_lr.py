@@ -26,7 +26,7 @@ sc.fit(X_train)
 X_train_std = sc.transform(X_train)
 X_test_std = sc.transform(X_test)
 
-lr = LogisticRegression(C=100, random_state=1)
+lr = LogisticRegression(C=100, solver='lbfgs', multi_class='ovr', random_state=1)
 lr.fit(X_train_std, y_train)
 
 import matplotlib.pyplot as plt
