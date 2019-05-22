@@ -33,6 +33,9 @@ import matplotlib.pyplot as plt
 X_combined_std = np.vstack((X_train_std, X_test_std))
 y_combined = np.hstack((y_train, y_test))
 plot_decision_regions(X_combined_std, y_combined, ppn, test_idx=range(105, 150))
+plt.xlabel('petal length [std]')
+plt.ylabel('petal width [std]')
+plt.legend(loc='upper left')
 plt.show()
 
 y_pred = ppn.predict(X_test_std)
