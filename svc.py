@@ -1,5 +1,5 @@
 """
-Training SVM classifier using scikin-learn.
+Training SVM classifier using scikit-learn.
 """
 import numpy as np
 from sklearn import datasets

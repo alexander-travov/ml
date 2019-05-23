@@ -1,5 +1,5 @@
 """
-Training Logistic Regression using scikin-learn.
+Training Logistic Regression using scikit-learn.
 """
 import numpy as np
 from sklearn import datasets

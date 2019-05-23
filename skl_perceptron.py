@@ -1,5 +1,5 @@
 """
-Multiclass Perceptron classifier from scikin-learn.
+Multiclass Perceptron classifier from scikit-learn.
 """
 import numpy as np
 from sklearn import datasets
