@@ -26,7 +26,7 @@ sc.fit(X_train)
 X_train_std = sc.transform(X_train)
 X_test_std = sc.transform(X_test)
 
-svm = SVC(kernel='linear', C=1.0, random_state=1)
+svm = SVC(kernel='rbf', C=1.0, random_state=1, gamma=1)
 svm.fit(X_train_std, y_train)
 
 import matplotlib.pyplot as plt
